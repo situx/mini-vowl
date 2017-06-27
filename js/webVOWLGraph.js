@@ -1480,6 +1480,9 @@ var focusOnElement = function focusOnElementFunct(element) {
     var   lastFocusedElement
         , currentNode = element.node();
 
+    // by lim
+    alert(element);
+
     // Remove highlighting of last element if exists.
     if (lastFocusedNode !== undefined) {
         lastFocusedElement = d3.select(lastFocusedNode);
