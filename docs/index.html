@@ -17,6 +17,10 @@
       <div id="resetOption"></div>
       <div id="sliderOption"></div>
     </div>
+    <span id="statusmessage"></span><br/>
+    Type: <select id="filetype"><option id="vowltype">VOWL JSON</option><option id="rdffile">RDF File</option></select><br/>
+    Graph URL:<input type="url" id="urlinput"/><button id="loadgraph">Load Graph</button>
+
     <p id="browserCheck" class="hidden"></p>
     <p id="controlDetails">Zooming is device-dependent: use mouse wheel, double click (+ shift key), or two fingers zooming gesture on the background.</p>
   </section>
@@ -27,6 +31,37 @@
 <script src="js/lib/d3.v3.min.js"></script> 
 <script src="js/webVOWLGraph.js"></script> 
 <script src="js/specVOWL.js"></script> 
-
+<script>
+function owlToVOWL(){
+  return {}
+}
+function loadGraph(graphpath){
+  var   height = 600
+      , width = document.getElementById("example").offsetWidth;
+  if(typeof graphpath === 'string'){
+    if(graphpath.endsWith(".json"){
+      d3.json(graphpath, function(error, data) {
+        json = data;
+        drawGraph(graphTag, width, height);
+      });
+    }else if(graphpath.endsWith(".ttl")){
+      d3.json(graphpath, function(error, data) {
+        json = owlToVOWL(data);
+        drawGraph(graphTag, width, height);
+      });
+    }
+  }else{
+    json = graphpath;
+    drawGraph(graphTag, width, height);
+  }
+}
+let queryParams = new URLSearchParams(window.location.search);
+let graph = params.get("graph"); // return john
+let filetype = params.get("filetype"); // return sales
+if(typeof(graph)!=='undefined'){
+  document.getElementById('urlinput').value=graph
+  loadGraph(graph)
+}
+</script>
 </body>
 </html>
