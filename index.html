@@ -7,6 +7,7 @@
 <link rel="stylesheet" type="text/css" href="css/vowl.css"/>
 <link rel="stylesheet" type="text/css" href="css/pagestyle.css"/>
 <title>Visual Notation for OWL Ontologies</title>
+<script src="https://cdn.jsdelivr.net/npm/rdflib@2.2.25/dist/rdflib.min.js"></script>
 </head>
 <body>
 <div id="wrapper">
@@ -31,9 +32,12 @@
 <script src="js/lib/d3.v3.min.js"></script> 
 <script src="js/webVOWLGraph.js"></script> 
 <script src="js/specVOWL.js"></script> 
+<script src="js/owltovowl.js"></script>
 <script>
 function owlToVOWL(){
-  return {}
+  res=loadAndConvertGraph(onturl)
+  console.log(res)
+  return res
 }
 function loadGraph(graphpath){
   var   height = 600
