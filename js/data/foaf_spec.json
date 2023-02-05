@@ -1,0 +1,26 @@
+{
+    "info": [
+        {
+            "title": "Friend of a Friend (FOAF) vocabulary",
+            "url": "http://xmlns.com/foaf/0.1/",
+            "version": "0.99 (Jan 2014)",
+            "authors": "Dan Brickley, Libby Miller",
+            "description": "The Friend of a Friend (FOAF) RDF vocabulary, described using W3C RDF Schema and the Web Ontology Language."
+        }
+    ],
+    "nodes": [
+        {"name": "Comprobante", "type": "external", "uri": "http://www.w3.org/2004/02/skos/core#Concept"},
+        {"name": "Receptor", "type": "external", "uri": "http://www.w3.org/2002/07/owl#Thing"},
+        {"name": "folio", "type": "external", "equivalentClasses": [{"name": "Person", "uri": "http://www.w3.org/2000/10/swap/pim/contact#Person"}, {"name": "Person", "uri": "http://schema.org/Person"}], "uri": "http://xmlns.com/foaf/0.1/Person", "disjoints": [{"name": "Organization", "uri": "http://xmlns.com/foaf/0.1/Organization"}, {"name": "Project", "uri": "http://xmlns.com/foaf/0.1/Project"}]},
+        {"name": "20474", "type": "class", "uri": "http://www.w3.org/2000/01/rdf-schema#Literal"},
+        {"name": "20475", "type": "class", "uri": "http://www.w3.org/2000/01/rdf-schema#Literal"},
+        {"name": "20476", "type": "class", "uri": "http://www.w3.org/2000/01/rdf-schema#Literal"}
+    ],
+    "links": [
+        {"source": 0, "target": 1, "valueTo": "hasReceptor", "propertyTo": "datatype", "uriTo": "http://xmlns.com/foaf/0.1/focus"},
+        {"source": 1, "target": 2, "valueTo": "hasFolio", "propertyTo": "datatype", "uriTo": "http://xmlns.com/foaf/0.1/lastName"},
+        {"source": 2, "target": 3, "type": "class", "valueTo": "", "propertyTo": "class", "uriTo": "http://www.w3.org/2000/01/rdf-schema#subClassOf"},
+        {"source": 2, "target": 4, "type": "class", "valueTo": "", "propertyTo": "class", "uriTo": "http://www.w3.org/2000/01/rdf-schema#subClassOf"},
+        {"source": 2, "target": 5, "type": "class", "valueTo": "", "propertyTo": "class", "uriTo": "http://www.w3.org/2000/01/rdf-schema#subClassOf"}
+    ]
+}
