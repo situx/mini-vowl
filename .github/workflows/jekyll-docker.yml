@@ -13,7 +13,8 @@ jobs:
     - name: Checkout repo
       uses: actions/checkout@v3
     - name: Deploy 🚀
-      uses: JamesIves/github-pages-deploy-action@v4.3.3
+      uses: JamesIves/github-pages-deploy-action@releases/v3
       with:
-         BRANCH: gh-pages
-         FOLDER: docs/
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        BRANCH: gh-pages
+        FOLDER: docs/
