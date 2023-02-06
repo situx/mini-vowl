@@ -34,7 +34,7 @@
 <script src="js/specVOWL.js"></script> 
 <script src="js/owltovowl.js"></script>
 <script>
-function owlToVOWL(){
+function owlToVOWL(onturl){
   res=loadAndConvertGraph(onturl)
   console.log(res)
   return res
@@ -43,16 +43,14 @@ function loadGraph(graphpath){
   var   height = 600
       , width = document.getElementById("example").offsetWidth;
   if(typeof graphpath === 'string'){
-    if(graphpath.endsWith(".json")){
+    if(graphpath.endsWith(".jsonn")){
       d3.json(graphpath, function(error, data) {
         json = data;
         drawGraph(graphTag, width, height);
       });
-    }else if(graphpath.endsWith(".ttl")){
-      d3.json(graphpath, function(error, data) {
-        json = owlToVOWL(data);
-        drawGraph(graphTag, width, height);
-      });
+    }else if(graphpath.endsWith(".ttl") || graphpath.endsWith(".n3") || graphpath.endsWith(".json") || graphpath.endsWith(".rdf")){
+      json=owlToVOWL(graphpath)
+      drawGraph(graphTag, width, height)
     }
   }else{
     json = graphpath;
@@ -62,7 +60,8 @@ function loadGraph(graphpath){
 let params = new URLSearchParams(window.location.search);
 let graphh = params.get("graph"); // return john
 let filetype = params.get("filetype"); // return sales
-if(typeof(graph)!=='undefined'){
+console.log(graphh)
+if(typeof(graphh)!=='undefined'){
   document.getElementById('urlinput').value=graphh
   loadGraph(graphh)
 }

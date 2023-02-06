@@ -29,6 +29,7 @@ function normalizeNS(prop){
 }
 
 async function loadAndConvertGraph(onturl){
+    console.log("OntURL: "+onturl)
     g=$rdf.graph()
     var timeout = 5000 // 5000 ms timeout
     var fetcher = new $rdf.Fetcher(g, timeout)
