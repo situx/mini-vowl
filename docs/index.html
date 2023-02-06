@@ -43,7 +43,7 @@ function loadGraph(graphpath){
   var   height = 600
       , width = document.getElementById("example").offsetWidth;
   if(typeof graphpath === 'string'){
-    if(graphpath.endsWith(".jsonn")){
+    if(graphpath.endsWith(".json")){
       d3.json(graphpath, function(error, data) {
         json = data;
         drawGraph(graphTag, width, height);
