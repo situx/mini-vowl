@@ -1,7 +1,7 @@
 vowlresult={"_comment":"Created with pyowl2vowl (version 0.1)","header":{"prefixList":{},"baseIris":[],"languages":[]},"namespace":[],"class":[],"classAttribute":[],"property":[],"propertyAttribute":[]}
 
 function getTypeForProperty(prop,graph){
-    for(tup in graph.objects($rdf.sym(prop),$rdf.sym("http://www.w3.org/1999/02/22-rdf-syntax-ns#type")){
+    for(tup in graph.statementsMatching($rdf.sym(prop),$rdf.sym("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"))){
         //print(tup)
         if((tup+"")!="http://www.w3.org/1999/02/22-rdf-syntax-ns#Property"){
             return normalizeNS((tup+""))
@@ -11,7 +11,7 @@ function getTypeForProperty(prop,graph){
 }
 
 function getBaseIRI(iri){
-    if(iri.includes("#"))){
+    if(iri.includes("#")){
         return iri.substring(0,iri.lastIndexOf('#'))
     }
     return iri.substring(0,iri.lastIndexOf('/'))
@@ -28,7 +28,7 @@ function normalizeNS(prop){
     return prop.replace("http://www.w3.org/1999/02/22-rdf-syntax-ns#","rdf:").replace("http://www.w3.org/2000/01/rdf-schema#","rdfs:").replace("http://www.w3.org/2002/07/owl#","owl:")
 }
 
-function loadAndConvertGraph(onturl):
+async function loadAndConvertGraph(onturl){
     g=$rdf.graph()
     var timeout = 5000 // 5000 ms timeout
     var fetcher = new $rdf.Fetcher(g, timeout)
@@ -44,12 +44,12 @@ function loadAndConvertGraph(onturl):
     classidcounter=0
     idcounter=0
     console.log(g)
-    for(nstup in g.namespaces(){
+    for(nstup in g.namespaces()){
         vowlresult["header"]["prefixList"][nstup[0]+""]=nstup[1]+""
         vowlresult["header"]["baseIris"].push(nstup[1]+"")
     }
     for(pred in g.statementsMatching(undefined,$rdf.sym("http://www.w3.org/1999/02/22-rdf-syntax-ns#type"),undefined)){
-        #print(pred)
+        //print(pred)
         iriToProdId[pred[0]]=idcounter
         if((pred[1]+"")=="http://www.w3.org/2002/07/owl#Class" || (pred[1]+"")=="http://www.w3.org/2000/01/rdf-schema#Class" || (pred[1]+"")=="http://www.w3.org/2000/01/rdf-schema#Datatype"){
             classes.push({"id":idcounter,"type":(pred[1]+"")})
@@ -133,3 +133,4 @@ function loadAndConvertGraph(onturl):
     vowlresult["class"]=classes
     vowlresult["classAttribute"]=classAttributes
     return vowlresult
+}

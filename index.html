@@ -43,7 +43,7 @@ function loadGraph(graphpath){
   var   height = 600
       , width = document.getElementById("example").offsetWidth;
   if(typeof graphpath === 'string'){
-    if(graphpath.endsWith(".json"){
+    if(graphpath.endsWith(".json")){
       d3.json(graphpath, function(error, data) {
         json = data;
         drawGraph(graphTag, width, height);
@@ -59,12 +59,12 @@ function loadGraph(graphpath){
     drawGraph(graphTag, width, height);
   }
 }
-let queryParams = new URLSearchParams(window.location.search);
-let graph = params.get("graph"); // return john
+let params = new URLSearchParams(window.location.search);
+let graphh = params.get("graph"); // return john
 let filetype = params.get("filetype"); // return sales
 if(typeof(graph)!=='undefined'){
-  document.getElementById('urlinput').value=graph
-  loadGraph(graph)
+  document.getElementById('urlinput').value=graphh
+  loadGraph(graphh)
 }
 </script>
 </body>
