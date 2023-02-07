@@ -33,8 +33,18 @@ async function loadAndConvertGraph(onturl){
     console.log("OntURL: "+onturl)
     g=$rdf.graph()
     var timeout = 5000 // 5000 ms timeout
-    var fetcher = new $rdf.Fetcher(g, timeout)
-    await fetcher.load(onturl)
+    var fetcher = new $rdf.Fetcher(g)
+    fetcher.nowOrWhenFetched(onturl, function(ok, body, response) {
+    if (!ok) {
+        console.log("Oops, something happened and couldn't fetch data " + body);
+    } else if (response.onErrorWasCalled || response.status !== 200) {
+        console.log('    Non-HTTP error reloading data! onErrorWasCalled=' + response.onErrorWasCalled + ' status: ' + response.status)
+    } else {
+         console.log("---data loaded---")
+         console.log(response)
+         $rdf.parse(response.responseText,g,onturl,"text/turtle")
+    }});
+    //await fetcher.load(onturl)
     props=[]
     propAttributes=[]
     classes=[]
@@ -66,7 +76,7 @@ async function loadAndConvertGraph(onturl){
         }
     }
     for(pred of g.statementsMatching(undefined,$rdf.sym("http://www.w3.org/2000/01/rdf-schema#range"),undefined)){
-        print(pred)
+        console.log(pred)
         if(!((pred["object"]["value"]+"") in classiriToProdId)){
             classes.push({"id":idcounter,"type":"http://www.w3.org/2000/01/rdf-schema#Datatype"})
             classiriToProdId[(pred["object"]["value"]+"")]={"id":idcounter,"attid":classAttributes.length-1}
