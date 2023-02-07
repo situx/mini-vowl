@@ -51,7 +51,7 @@ var   GRAPH_WIDTH = window.innerWidth
 
 
 /* ################################ STARTING GRAPH ################################ */
-function drawGraph(graphContainerElement, width, height,graphjson) {
+function drawGraph(graphContainerElement, width, height,json) {
     /* ################ SVG CONTAINER ################ */
     var graphContainer = d3.select(graphContainerElement).attr("id", "graph");
 
@@ -89,14 +89,14 @@ function drawGraph(graphContainerElement, width, height,graphjson) {
         .gravity(0.025)
         .linkStrength(0.7) // Flexibility of links
         .size([GRAPH_WIDTH, GRAPH_HEIGHT])
-        .nodes(graphjson.nodes)
-        .links(graphjson.links)
+        .nodes(json.nodes)
+        .links(json.links)
         .on("tick", tick)
         .start();
 
     /* Per-type markers, as they don't inherit styles */
     var defs = svg.append("defs");
-    graphjson.links.forEach(function (l, i) {
+    json.links.forEach(function (l, i) {
         l.id = i;
         if (!isSpecialLink(l)) {
             addMarker(defs, l, false);
@@ -110,7 +110,7 @@ function drawGraph(graphContainerElement, width, height,graphjson) {
 
     /* Creates links groups */
     link = svg.selectAll(".link")
-        .data(graphjson.links)
+        .data(json.links)
         .enter().append("g")
         .attr("class", function (d) {
             return getMarkerId(d, true) + " " + getMarkerId(d, false);
@@ -140,7 +140,7 @@ function drawGraph(graphContainerElement, width, height,graphjson) {
 
     /* Creates label groups */
     label = svg.selectAll(".label")
-        .data(graphjson.links)
+        .data(json.links)
         .enter().append("g")
         .classed("label", true);
 
@@ -174,7 +174,7 @@ function drawGraph(graphContainerElement, width, height,graphjson) {
     /* ############### CARDINALITIES ############### */
 
     cardinalities = svg.selectAll(".cardinality")
-        .data(graphjson.links).enter()
+        .data(json.links).enter()
         .append("g").classed("cardinality", true);
 
     cardinalities = cardinalities.filter(function (l) {
@@ -213,7 +213,7 @@ function drawGraph(graphContainerElement, width, height,graphjson) {
 
     /* Creates node groups */
     node = svg.selectAll(".node")
-        .data(graphjson.nodes)
+        .data(json.nodes)
         .enter().append("g")
         .attr("class", "node")
         /*.on("click", function (d) {
@@ -419,9 +419,9 @@ var resetGraph = function resetGraphFunct() {
 };
 
 /* Initialize various fields */
-var initialize = function initializeFunct(graphjson) {
-    for (var i = 0; i < graphjson.nodes.length; i++) {
-        var   node = graphjson.nodes[i]
+var initialize = function initializeFunct(json) {
+    for (var i = 0; i < json.nodes.length; i++) {
+        var   node = json.nodes[i]
             , maxTextWidth
         	, radius;
         switch (node.type) {
@@ -455,14 +455,14 @@ var initialize = function initializeFunct(graphjson) {
     }
 
     // Count multi edges and self links
-    graphjson.links.forEach(function (link) {
+    json.links.forEach(function (link) {
         var i = 0;
         // Don't count multiple times the same source-target combination
         if (isNaN(link.multiLinkCount)) {
             var sameLinks = [];
 
             // Search all links with the source and target
-            graphjson.links.forEach(function (otherLink) {
+            json.links.forEach(function (otherLink) {
                 if ((link.source === otherLink.source && link.target === otherLink.target) ||
                     (link.target === otherLink.source && link.source === otherLink.target)) {
                     sameLinks.push(otherLink);
@@ -479,7 +479,7 @@ var initialize = function initializeFunct(graphjson) {
         if (isNaN(link.selfLinkCount)) {
             var selfLinks = [];
 
-            graphjson.links.forEach(function (otherLink) {
+            json.links.forEach(function (otherLink) {
                 if ((link.source === otherLink.source) && (link.target === otherLink.target)) {
                     selfLinks.push(otherLink);
                 }
