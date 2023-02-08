@@ -419,7 +419,7 @@ var resetGraph = function resetGraphFunct() {
 };
 
 /* Initialize various fields */
-var initialize = function initializeFunct(json) {
+var initialize = function initializeFunct() {
     for (var i = 0; i < json.nodes.length; i++) {
         var   node = json.nodes[i]
             , maxTextWidth
