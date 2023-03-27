@@ -1481,7 +1481,7 @@ var focusOnElement = function focusOnElementFunct(element) {
         , currentNode = element.node();
 
     // by lim
-    alert(element);
+    //alert(element);
 
     // Remove highlighting of last element if exists.
     if (lastFocusedNode !== undefined) {
