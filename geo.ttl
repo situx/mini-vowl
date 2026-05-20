@@ -105,7 +105,7 @@
 	skos:definition """A GML serialization of a Geometry object."""@en ;
 	rdfs:seeAlso <https://portal.ogc.org/files/?artifact_id=20509> ; # TODO: replace with one that is guaranteed to be persistent
 	skos:prefLabel "GML Literal"@en ;
-	skos:example spec11:B.1.2.4 .
+	skos:example spec11:B_1_2_4 .
 
 :wktLiteral
 	a rdfs:Datatype ;
@@ -117,7 +117,7 @@
 	rdfs:seeAlso <https://portal.ogc.org/files/?artifact_id=25355> ; # TODO: replace with one that is guaranteed to be persistent
 	skos:prefLabel "Well-known Text Literal"@en ;
 	skos:example
-		spec11:B.2.2.2 
+		spec11:B_2_2_2 
 .
 
 :geoJSONLiteral
@@ -129,7 +129,7 @@
 	skos:definition """A GeoJSON serialization of a Geometry object."""@en ;
 	skos:prefLabel "GeoJSON Literal"@en ;
 	skos:example
-		spec11:B.1.2.4 	
+		spec11:B_1_2_4 	
 .
 
 :kmlLiteral
@@ -141,7 +141,7 @@
 	skos:definition """A KML serialization of a Geometry object."""@en ;
 	skos:prefLabel "KML Literal"@en ;
 	skos:example
-		spec11:B.1.2.4 	
+		spec11:B_1_2_4 	
 .
 
 :dggsLiteral
@@ -150,7 +150,7 @@
 	skos:definition """A textual serialization of a Discrete Global Grid (DGGS) Geometry object."""@en ;
 	skos:example 
 		""" "<https://w3id.org/dggs/auspix> OrdinateList (R3234)"^^<http://www.opengis.net/ont/geosparql#dggsLiteral>""" ,
-		spec11:B.1.2.4 ;
+		spec11:B_1_2_4 ;
   rdfs:seeAlso <http://www.opengis.net/doc/AS/dggs/2.0> ;
 	skos:prefLabel "DGGS Literal"@en ;
 	skos:scopeNote "This datatype is not expected to be used directly but to serve as an abstract datatype for a series of specific DGGS literal types, for specific DGGS implementations"@en ;
@@ -175,8 +175,8 @@
 	skos:note """Duplicate properties defaultGeometry and hasDefaultGeometry exist because of an inconsistency between ontology and documentation in GeoSPARQL 1.0. Only hasDefaultGeometry is described in the documention."""@en ;
 	skos:prefLabel "default geometry"@en ;
 	skos:example
-		spec11:B.1.2.2 ,
-		spec11:B.2.1 ;
+		spec11:B_1_2_2 ,
+		spec11:B_2_1 ;
 .
 
 :hasDefaultGeometry 
@@ -312,18 +312,18 @@
 	skos:definition """A spatial representation for a given Feature."""@en ;
 	skos:prefLabel "has geometry"@en ;
 	skos:example
-		spec11:B.1.1.2.2 ,
-		spec11:B.1.1.2.3 ,
-		spec11:B.1.1.2.4 ,
-		spec11:B.1.1.2.5 ,
-		spec11:B.1.1.2.6 ,
-		spec11:B.1.1.2.8 ,
-		spec11:B.1.1.3.2 ,
-		spec11:B.1.1.3.3 ,
-		spec11:B.1.2.2 ,
-		spec11:B.1.2.3 ,
-		spec11:B.1.2.4 ,
-		spec11:B.2 ;
+		spec11:B_1_1_2_2 ,
+		spec11:B_1_1_2_3 ,
+		spec11:B_1_1_2_4 ,
+		spec11:B_1_1_2_5 ,
+		spec11:B_1_1_2_6 ,
+		spec11:B_1_1_2_8 ,
+		spec11:B_1_1_3_2 ,
+		spec11:B_1_1_3_3 ,
+		spec11:B_1_2_2 ,
+		spec11:B_1_2_3 ,
+		spec11:B_1_2_4 ,
+		spec11:B_2 ;
 .
 
 :hasBoundingBox
@@ -338,7 +338,7 @@
 	skos:prefLabel "has bounding box"@en ;
 	skos:scopeNote "The target is a Geometry that defines a rectilinear region whose edges are aligned with the axes of the coordinate reference system, which exactly contains the Feature, for example an instance of http://www.opengis.net/ont/sf#envelope."@en ;
 	skos:example
-		spec11:B.1.2.2 ;
+		spec11:B_1_2_2 ;
 .
 
 :hasCentroid
@@ -353,7 +353,7 @@
 	skos:prefLabel "has centroid"@en ;
 	skos:scopeNote "The target Geometry shall describe a point, for example an instance of http://www.opengis.net/ont/sf#Point."@en ;
 	skos:example
-		spec11:B.1.2.2 ;	
+		spec11:B_1_2_2 ;	
 .
 
 :hasLength
@@ -366,8 +366,8 @@
 	skos:definition """The length of a Spatial Object."""@en ;
 	skos:prefLabel "has length"@en ;
 	skos:example
-		spec11:B.1.1.2.7 ,
-		spec11:B.1.2.2 ;
+		spec11:B_1_1_2_7 ,
+		spec11:B_1_2_2 ;
 .
 
 :hasPerimeterLength
@@ -380,7 +380,7 @@
 	skos:definition """The length of the perimeter of a Spatial Object."""@en ;
 	skos:prefLabel "has perimeter length"@en ;
 	skos:example
-		spec11:B.1.1.1.2 ;
+		spec11:B_1_1_1_2 ;
 .
 
 :hasArea
@@ -393,8 +393,8 @@
 	skos:definition """The area of a Spatial Object."""@en ;
 	skos:prefLabel "has area"@en ;
 	skos:example
-		spec11:B.1.1.2.4 ,
-		spec11:B.1.2.2 ;
+		spec11:B_1_1_2_4 ,
+		spec11:B_1_2_2 ;
 .
 
 :hasVolume
@@ -407,7 +407,7 @@
 	skos:definition """The volume of a three-dimensional Spatial Object."""@en ;
 	skos:prefLabel "has volume"@en ;
 	skos:example
-		spec11:B.1.2.2 ;	
+		spec11:B_1_2_2 ;	
 .	
 
 :hasSpatialResolution
@@ -420,7 +420,7 @@
 	skos:note """Spatial resolution specifies the level of detail of a Geometry. It the smallest distinguishable distance between spatially adjacent coordinates."""@en;
 	skos:prefLabel "has spatial resolution"@en ;
 	skos:example
-		spec11:B.1.2.2 ;		
+		spec11:B_1_2_2 ;		
 .
 
 :hasSpatialAccuracy
@@ -433,7 +433,7 @@
 	skos:note """Spatial accuracy is applicable when a Geometry is used to represent a Feature. It is expressed as a distance that indicates the truthfullness of the positions (coordinates) that define the Geometry. In this case accuracy defines a zone surrounding each coordinate within wich the real positions are known to be. The accuracy value defines this zone as a distance from the coordinate(s) in all directions (e.g. a line, a circle or a sphere, depending on spatial dimension)."""@en;
 	skos:prefLabel "has spatial accuracy"@en ;
 	skos:example
-		spec11:B.1.2.3 ;
+		spec11:B_1_2_3 ;
 .
 
 :rcc8dc
@@ -677,7 +677,7 @@
 	skos:definition """The GML serialization of a Geometry"""@en ;
 	skos:prefLabel "as GML"@en ;
 	skos:example 
-		spec11:B.1.2.4 ;	
+		spec11:B_1_2_4 ;	
 .
 
 :asWKT
@@ -692,18 +692,18 @@
 	skos:definition """The WKT serialization of a Geometry"""@en ;
 	skos:prefLabel "as WKT"@en ;
 	skos:example 
-		spec11:B.1.1.2.2 ,
-		spec11:B.1.1.2.3 ,
-		spec11:B.1.1.2.4 ,
-		spec11:B.1.1.2.5 ,
-		spec11:B.1.1.2.6 ,
-		spec11:B.1.1.2.8 ,
-		spec11:B.1.1.3.1 ,
-		spec11:B.1.1.3.2 ,
-		spec11:B.1.1.3.3 ,
-		spec11:B.1.2.2 ,
-		spec11:B.2.2.4 ,
-		spec11:B.2.1 ;
+		spec11:B_1_1_2_2 ,
+		spec11:B_1_1_2_3 ,
+		spec11:B_1_1_2_4 ,
+		spec11:B_1_1_2_5 ,
+		spec11:B_1_1_2_6 ,
+		spec11:B_1_1_2_8 ,
+		spec11:B_1_1_3_1 ,
+		spec11:B_1_1_3_2 ,
+		spec11:B_1_1_3_3 ,
+		spec11:B_1_2_2 ,
+		spec11:B_2_2_4 ,
+		spec11:B_2_1 ;
 .
 
 :asGeoJSON
@@ -718,7 +718,7 @@
 	skos:definition """The GeoJSON serialization of a Geometry"""@en ;
 	skos:prefLabel "as GeoJSON"@en ;
 	skos:example 
-		spec11:B.1.2.4 ;
+		spec11:B_1_2_4 ;
 .	
 
 :asKML
@@ -733,7 +733,7 @@
 	skos:definition """The KML serialization of a Geometry"""@en ;
 	skos:prefLabel "as KML"@en ;
 	skos:example 
-		spec11:B.1.2.4 ;
+		spec11:B_1_2_4 ;
 .	
 
 :asDGGS
@@ -747,7 +747,7 @@
 	skos:definition """The Discrete Global Grid System (DGGS) serialization of a Geometry"""@en ;	
 	skos:prefLabel "as DGGS"@en ;
 	skos:example 
-		spec11:B.1.2.4 ;
+		spec11:B_1_2_4 ;
 .	
 
 :coordinateDimension
@@ -760,7 +760,7 @@
 	skos:definition """The number of measurements or axes needed to describe the position of this Geometry in a coordinate system."""@en ;
 	skos:prefLabel "coordinate dimension"@en ;
 	skos:example 
-		spec11:B.1.2.3 ;	
+		spec11:B_1_2_3 ;	
 .
 
 :dimension
@@ -773,7 +773,7 @@
 	skos:definition """The topological dimension of this geometric object, which must be less than or equal to the coordinate dimension. In non-homogeneous collections, this will return the largest topological dimension of the contained objects."""@en ;
 	skos:prefLabel "dimension"@en ;
 	skos:example 
-		spec11:B.1.2.3 ;		
+		spec11:B_1_2_3 ;		
 .
 
 :hasSerialization
@@ -787,7 +787,7 @@
 	skos:definition """Connects a Geometry object with its text-based serialization."""@en ;
 	skos:prefLabel "has serialization"@en ;
 	skos:example 
-		spec11:B.1.2.3 ;		
+		spec11:B_1_2_3 ;		
 .
 
 :isEmpty
@@ -801,7 +801,7 @@
 	skos:definition """(true) if this geometric object is the empty Geometry. If true, then this geometric object represents the empty point set for the coordinate space."""@en ;
 	skos:prefLabel "is empty"@en ;
 	skos:example 
-		spec11:B.1.2.3 ;		
+		spec11:B_1_2_3 ;		
 .
 
 :isSimple
@@ -816,7 +816,7 @@
 	rdfs:seeAlso <https://portal.ogc.org/files/?artifact_id=25355> ;
 	skos:prefLabel "is simple"@en ;
 	skos:example 
-		spec11:B.1.2.3 ;		
+		spec11:B_1_2_3 ;		
 .
 
 :spatialDimension
@@ -830,7 +830,7 @@
 	skos:definition """The number of measurements or axes needed to describe the spatial position of this Geometry in a coordinate system."""@en ;
 	skos:prefLabel "spatial dimension"@en ;
 	skos:example 
-		spec11:B.1.2.3 ;		
+		spec11:B_1_2_3 ;		
 .
 
 :hasMetricSpatialResolution
@@ -844,8 +844,8 @@
 	skos:note """Spatial resolution specifies the level of detail of a Geometry. It the smallest dinstinguishable distance between spatially adjacent coordinates."""@en;
 	skos:prefLabel "has spatial resolution in meters"@en ;
 	skos:example 
-		spec11:B.1.1.2.6 ,
-		spec11:B.1.2.2 ;
+		spec11:B_1_1_2_6 ,
+		spec11:B_1_2_2 ;
 .
 
 :hasMetricSpatialAccuracy
@@ -859,7 +859,7 @@
 	skos:note """Spatial accuracy is applicable when a Geometry is used to represent a Feature. It is expressed as a distance that indicates the truthfullness of the positions (coordinates) that define the Geometry. In this case accuracy defines a zone surrounding each coordinate within wich the real positions are known to be. The accuracy value defines this zone as a distance from the coordinate(s) in all directions (e.g. a line, a circle or a sphere, depending on spatial dimension)."""@en;
 	skos:prefLabel "has spatial accuracy in meters"@en ;
 	skos:example
-		spec11:B.1.2.3 ;
+		spec11:B_1_2_3 ;
 .
 
 :hasMetricLength
@@ -873,7 +873,7 @@
 	skos:definition """The length of a Spatial Object in meters."""@en ;
 	skos:prefLabel "has length in meters"@en ;
 	skos:example
-		spec11:B.1.2.2 ;	
+		spec11:B_1_2_2 ;	
 .
 
 :hasMetricPerimeterLength
@@ -887,7 +887,7 @@
 	skos:definition """The length of the perimeter of a Spatial Object in meters."""@en ;
 	skos:prefLabel "has perimeter length in meters"@en ;
 	skos:example
-		spec11:B.1.1.1.2 ;		
+		spec11:B_1_1_1_2 ;		
 .
 
 :hasMetricArea
@@ -901,10 +901,10 @@
 	skos:definition """The area of a Spatial Object in square meters."""@en ;
 	skos:prefLabel "has area in square meters"@en ;
 	skos:example
-		spec11:B.1.1.2.3 ,
-		spec11:B.1.1.2.9 ,
-		spec11:B.1.1.3.3 ,
-		spec11:B.1.2.2 ;
+		spec11:B_1_1_2_3 ,
+		spec11:B_1_1_2_9 ,
+		spec11:B_1_1_3_3 ,
+		spec11:B_1_2_2 ;
 .
 
 :hasMetricVolume
@@ -918,8 +918,8 @@
 	skos:definition """The volume of a Spatial Object in cubic meters."""@en ;
 	skos:prefLabel "has volume in cubic meters"@en ;
 	skos:example
-		spec11:B.1.1.2.9 ,
-		spec11:B.1.2.2 ;
+		spec11:B_1_1_2_9 ,
+		spec11:B_1_2_2 ;
 .
 
 :hasMetricSize
@@ -951,20 +951,20 @@
 	skos:note """A Feature represents a uniquely identifiable phenomenon, for example a river or an apple. While such phenomena (and therefore the Features used to represent them) are bounded, their boundaries may be crisp (e.g., the declared boundaries of a state), vague (e.g., the delineation of a valley versus its neighboring mountains), and change with time (e.g., a storm front). While discrete in nature, Features may be created from continuous observations, such as an isochrone that determines the region that can be reached by ambulance within 5 minutes."""@en ;
 	skos:prefLabel "Feature"@en ;
 	skos:example
-		spec11:B.1.1.2.1 ,
-		spec11:B.1.1.2.2 ,
-		spec11:B.1.1.2.3 ,
-		spec11:B.1.1.2.4 ,
-		spec11:B.1.1.2.5 ,
-		spec11:B.1.1.2.6 ,
-		spec11:B.1.1.2.7 ,
-		spec11:B.1.1.2.8 ,
-		spec11:B.1.1.2.9 ,
-		spec11:B.1.1.3.2 ,
-		spec11:B.1.1.3.3 ,
-		spec11:B.1.2.2 ,
-		spec11:B.1.2.3 ,
-		spec11:B.1.2.4 
+		spec11:B_1_1_2_1 ,
+		spec11:B_1_1_2_2 ,
+		spec11:B_1_1_2_3 ,
+		spec11:B_1_1_2_4 ,
+		spec11:B_1_1_2_5 ,
+		spec11:B_1_1_2_6 ,
+		spec11:B_1_1_2_7 ,
+		spec11:B_1_1_2_8 ,
+		spec11:B_1_1_2_9 ,
+		spec11:B_1_1_3_2 ,
+		spec11:B_1_1_3_3 ,
+		spec11:B_1_2_2 ,
+		spec11:B_1_2_3 ,
+		spec11:B_1_2_4 
 .
 
 :FeatureCollection
@@ -981,7 +981,7 @@
 	skos:prefLabel "Feature Collection"@en ;
 	skos:definition "A collection of individual Features."@en ;
 	skos:example
-		spec11:B.1.1.6 
+		spec11:B_1_1_6 
 .
 
 :Geometry
@@ -995,18 +995,18 @@
 	skos:note """Geometry can be used as a representation of the shape, extent or location of a Feature and may exist as a self-contained entity."""@en ;
 	skos:prefLabel "Geometry"@en ;
 	skos:example 
-		spec11:B.1.1.2.2 , 
-		spec11:B.1.1.2.3 , 
-		spec11:B.1.1.2.4 , 
-		spec11:B.1.1.2.5 , 
-		spec11:B.1.1.2.6 , 
-		spec11:B.1.1.2.8 , 
-		spec11:B.1.1.3.1 , 
-		spec11:B.1.1.3.2 , 
-		spec11:B.1.1.3.3 ,
-		spec11:B.1.2.2 ,
-		spec11:B.1.2.3 ,
-		spec11:B.1.2.4 
+		spec11:B_1_1_2_2 , 
+		spec11:B_1_1_2_3 , 
+		spec11:B_1_1_2_4 , 
+		spec11:B_1_1_2_5 , 
+		spec11:B_1_1_2_6 , 
+		spec11:B_1_1_2_8 , 
+		spec11:B_1_1_3_1 , 
+		spec11:B_1_1_3_2 , 
+		spec11:B_1_1_3_3 ,
+		spec11:B_1_2_2 ,
+		spec11:B_1_2_3 ,
+		spec11:B_1_2_4 
 .
 
 :GeometryCollection
@@ -1023,7 +1023,7 @@
 	skos:definition "A collection of individual Geometries."@en ;
 	skos:prefLabel "Geometry Collection"@en ;
 	skos:example
-		spec11:B.1.1.7 
+		spec11:B_1_1_7 
 .
 
 :SpatialObject
@@ -1036,8 +1036,8 @@
 	skos:note """Subclasses of this class are expected to be used for instance data."""@en ;
 	skos:prefLabel "Spatial Object"@en ;
 	skos:example
-		spec11:B.1.1.1.1 ,
-		spec11:B.1.1.1.2 
+		spec11:B_1_1_1_1 ,
+		spec11:B_1_1_1_2 
 .
 
 :SpatialObjectCollection
