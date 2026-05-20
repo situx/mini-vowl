@@ -20,7 +20,7 @@
     </div>
     <span id="statusmessage"></span><br/>
     Type: <select id="filetype"><option id="vowltype">VOWL JSON</option><option id="rdffile">RDF File</option></select><br/>
-    Graph URL:<input type="url" id="urlinput"/><button id="loadgraph">Load Graph</button>
+    Graph URL:<input type="url" id="urlinput" value="https://situx.github.io/mini-vowl/geo.ttl"><button id="loadgraph">Load Graph</button>
 
     <p id="browserCheck" class="hidden"></p>
     <p id="controlDetails">Zooming is device-dependent: use mouse wheel, double click (+ shift key), or two fingers zooming gesture on the background.</p>
@@ -62,7 +62,7 @@ let params = new URLSearchParams(window.location.search);
 let graphh = params.get("graph"); // return john
 let filetype = params.get("filetype"); // return sales
 console.log(graphh)
-if(typeof(graphh)!=='undefined'){
+if(typeof(graphh)!=='undefined' && graphh!=null){
   document.getElementById('urlinput').value=graphh
   loadGraph(graphh)
 }
