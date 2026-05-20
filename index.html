@@ -34,12 +34,12 @@
 <script src="js/specVOWL.js"></script> 
 <script src="js/owltovowl.js"></script>
 <script>
-function owlToVOWL(onturl){
-  res=loadAndConvertGraph(onturl)
+async function owlToVOWL(onturl){
+  res=await loadAndConvertGraph(onturl)
   console.log(res)
   return res
 }
-function loadGraph(){
+async function loadGraph(){
   var   height = 600
       , width = document.getElementById("example").offsetWidth;
   graphpath=document.getElementById("urlinput").value
