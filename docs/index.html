@@ -52,6 +52,7 @@ async function loadGraph(){
       });
     }else if(graphpath.endsWith(".ttl") || graphpath.endsWith(".n3") || graphpath.endsWith(".json") || graphpath.endsWith(".rdf")){
       json=owlToVOWL(graphpath)
+      console.log("OWL2VOWL Result: "+json)
       drawGraph(graphTag, width, height)
     }
   }else{
